@@ -1,0 +1,22 @@
+id = "cv"
+name = "cv"
+version = "0.0.1"
+schema_version = 1
+description = "Claire's custom themes, syntax highlighting, etc."
+repository = "https://github.com/claire-west/zed-extension"
+authors = ["Claire West <bokthaku@gmail.com>"]
+themes = ["themes/cv_monokai.json"]
+languages = ["languages/javascript", "languages/html", "languages/xml"]
+
+[grammars.javascript]
+repository = "https://github.com/tree-sitter/tree-sitter-javascript"
+rev = "a92640f158c208ca3be28b560b838b2bd60e8eac"
+
+[grammars.html]
+repository = "https://github.com/tree-sitter/tree-sitter-html"
+rev = "bfa075d83c6b97cd48440b3829ab8d24a2319809"
+
+[grammars.xml]
+repository = "https://github.com/tree-sitter-grammars/tree-sitter-xml"
+rev = "96beba9f3e4156aaae64bb86997503b1ceb1283d"
+path = "xml"
