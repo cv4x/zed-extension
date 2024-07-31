@@ -1,3 +1,5 @@
 grammars/
 target/
 *.wasm
+
+languages/**/*.scm
