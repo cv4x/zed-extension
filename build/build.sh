@@ -25,11 +25,16 @@ CV_JS=highlights-js.scm
 CV_HTML=highlights-html.scm
 CV_XML=highlights-xml.scm
 
-# fetch the highlight files
+# theme vars
+THEME_FILE=monokai.json
+THEME_URL=https://raw.githubusercontent.com/billgo/monokai/master/themes/$THEME_FILE
+
+echo Creating temp directories
 mkdir -p $TMP/javascript
 mkdir -p $TMP/html
 mkdir -p $TMP/xml
 
+echo Downloading base files
 wget -q -O $TMP/javascript/$BASE $JS_BASE_URL &
 wget -q -O $TMP/javascript/$JS_PARAMS $JS_PARAMS_URL &
 wget -q -O $TMP/javascript/$JS_JSX $JS_JSX_URL &
@@ -38,7 +43,7 @@ wget -q -O $TMP/xml/$BASE $XML_BASE_URL &
 
 wait
 
-# concatenate files with custom overrides at the bottom of the file
+echo Concatenating files
 echo >> $TMP/javascript/$BASE && cat $TMP/javascript/$JS_PARAMS >> $TMP/javascript/$BASE
 echo >> $TMP/javascript/$BASE && cat $TMP/javascript/$JS_JSX >> $TMP/javascript/$BASE
 echo >> $TMP/javascript/$BASE && cat $CV_JS >> $TMP/javascript/$BASE
@@ -47,15 +52,20 @@ echo >> $TMP/html/$BASE && cat $CV_HTML >> $TMP/html/$BASE
 
 echo >> $TMP/xml/$BASE && cat $CV_XML >> $TMP/xml/$BASE
 
-# copy final highlights.scm files to languages directory
+echo Copying to languages directory
 cp $TMP/javascript/$BASE ../languages/javascript
 cp $TMP/html/$BASE ../languages/html
 cp $TMP/xml/$BASE ../languages/xml
 
-# cleanup
+echo Fetching base theme
+wget -q -O $TMP/$THEME_FILE $THEME_URL
+
+./json-merge $THEME_FILE $TMP/$THEME_FILE ../themes/$THEME_FILE
+
+echo Cleaning up temp directory
 rm -Rf $TMP
 
-# fetch other scm files
+echo Fetching additional scm files
 wget -q -O ../languages/javascript/injections.scm $JS_URL/injections.scm &
 wget -q -O ../languages/javascript/locals.scm   $JS_URL/locals.scm &
 wget -q -O ../languages/javascript/tags.scm     $JS_URL/tags.scm &
@@ -69,3 +79,5 @@ wget -q -O ../languages/html/overrides.scm  $HTML_URL/overrides.scm &
 wget -q -O ../languages/xml/indents.scm $XML_URL/indents.scm &
 
 wait
+
+echo Done

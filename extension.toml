@@ -5,7 +5,7 @@ schema_version = 1
 description = "Claire's custom themes, syntax highlighting, etc."
 repository = "https://github.com/claire-west/zed-extension"
 authors = ["Claire West <bokthaku@gmail.com>"]
-themes = ["themes/cv_monokai.json"]
+themes = ["themes/monokai.json"]
 languages = ["languages/javascript", "languages/html", "languages/xml"]
 
 [grammars.javascript]

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://zed.dev/schema/themes/v0.1.0.json",
+  "name": "cv monokai",
+  "author": "Claire <bokthaku@gmail.com>",
+  "themes": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    {
+      "name": "cv monokai Darker Classic",
+      "style": {
+        "syntax": {
+          "function.builtin": {
+            "color": "#66d9ef",
+            "font_style": "italic"
+          },
+          "function.call": {
+              "color": "#66d9ef"
+          },
+          "keyword.subtle": {
+            "color": "#66d9ef",
+            "font_style": "italic"
+          },
+          "variable.builtin": {
+            "color": "#66d9ef",
+            "font_style": "italic"
+          },
+          "variable.parameter": {
+            "color": "#fd971f",
+            "font_style": "italic"
+          },
+          "variable.this": {
+            "color": "#fd971f",
+            "font_style": "italic"
+          }
+        }
+      }
+    }
+  ]
+}
