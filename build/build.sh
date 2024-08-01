@@ -29,10 +29,14 @@ CV_XML=highlights-xml.scm
 THEME_FILE=monokai.json
 THEME_URL=https://raw.githubusercontent.com/billgo/monokai/master/themes/$THEME_FILE
 
-echo Creating temp directories
+echo Creating directories
 mkdir -p $TMP/javascript
 mkdir -p $TMP/html
 mkdir -p $TMP/xml
+mkdir -p ../languages/javascript
+mkdir -p ../languages/html
+mkdir -p ../languages/xml
+mkdir -p ../themes
 
 echo Downloading base files
 wget -q -O $TMP/javascript/$BASE $JS_BASE_URL &
