@@ -1,4 +1,4 @@
-name = "cv XML"
+name = "XML"
 grammar = "xml"
 path_suffixes = [
     "xml",
