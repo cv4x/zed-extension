@@ -1,35 +1,60 @@
-; Parse the contents of tagged template literals using
-; a language inferred from the tag.
+(((comment) @_jsdoc_comment
+  (#match? @_jsdoc_comment "(?s)^/[*][*][^*].*[*]/$")) @content
+  (#set! "language" "jsdoc"))
+
+((regex) @content
+  (#set! "language" "regex"))
 
 (call_expression
-  function: [
-    (identifier) @injection.language
-    (member_expression
-      property: (property_identifier) @injection.language)
-  ]
-  arguments: (template_string (string_fragment) @injection.content)
-  (#set! injection.combined)
-  (#set! injection.include-children))
+  function: (identifier) @_name (#eq? @_name "css")
+  arguments: (template_string (string_fragment) @content
+                              (#set! "language" "css"))
+)
 
-
-; Parse regex syntax within regex literals
-
-((regex_pattern) @injection.content
- (#set! injection.language "regex"))
-
- ; Parse JSDoc annotations in comments
-
-((comment) @injection.content
- (#set! injection.language "jsdoc"))
-
-; Parse Ember/Glimmer/Handlebars/HTMLBars/etc. template literals
-; e.g.: await render(hbs`<SomeComponent />`)
 (call_expression
-  function: ((identifier) @_name
-             (#eq? @_name "hbs"))
-  arguments: ((template_string) @glimmer
-              (#offset! @glimmer 0 1 0 -1)))
+  function: (identifier) @_name (#eq? @_name "html")
+  arguments: (template_string) @content
+                              (#set! "language" "html")
+)
 
-; Ember Unified <template> syntax
-; e.g.: <template><SomeComponent @arg={{double @value}} /></template>
-((glimmer_template) @glimmer)
+(call_expression
+  function: (identifier) @_name (#eq? @_name "js")
+  arguments: (template_string (string_fragment) @content
+                              (#set! "language" "javascript"))
+)
+
+(call_expression
+  function: (identifier) @_name (#eq? @_name "json")
+  arguments: (template_string (string_fragment) @content
+                              (#set! "language" "json"))
+)
+
+(call_expression
+  function: (identifier) @_name (#eq? @_name "sql")
+  arguments: (template_string (string_fragment) @content
+                              (#set! "language" "sql"))
+)
+
+(call_expression
+  function: (identifier) @_name (#eq? @_name "ts")
+  arguments: (template_string (string_fragment) @content
+                              (#set! "language" "typescript"))
+)
+
+(call_expression
+  function: (identifier) @_name (#match? @_name "^ya?ml$")
+  arguments: (template_string (string_fragment) @content
+                              (#set! "language" "yaml"))
+)
+
+(call_expression
+  function: (identifier) @_name (#match? @_name "^g(raph)?ql$")
+  arguments: (template_string (string_fragment) @content
+                              (#set! "language" "graphql"))
+)
+
+(call_expression
+  function: (identifier) @_name (#match? @_name "^g(raph)?ql$")
+  arguments: (arguments (template_string (string_fragment) @content
+                              (#set! "language" "graphql")))
+)

@@ -54,6 +54,9 @@ right: [(function_expression) (arrow_function)])
 
 (this) @variable.this
 
+((comment) @comment.doc
+ (#match? @comment.doc "@[A-Za-z]+"))
+
 [
   "..."
 ] @operator

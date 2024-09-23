@@ -71,13 +71,13 @@ echo Cleaning up temp directory
 rm -Rf $TMP
 
 echo Fetching additional scm files
-wget -q -O ../languages/javascript/injections.scm   $JS_URL/injections.scm &
 wget -q -O ../languages/javascript/locals.scm       $JS_URL/locals.scm &
 wget -q -O ../languages/javascript/tags.scm         $JS_URL/tags.scm &
 wget -q -O ../languages/javascript/brackets.scm     $JS_Z_URL/brackets.scm &
-# wget -q -O ../languages/javascript/contexts.scm     $JS_Z_URL/contexts.scm &
+wget -q -O ../languages/javascript/contexts.scm     $JS_Z_URL/contexts.scm &
 # wget -q -O ../languages/javascript/embedding.scm    $JS_Z_URL/embedding.scm &
 wget -q -O ../languages/javascript/indents.scm      $JS_Z_URL/indents.scm &
+wget -q -O ../languages/javascript/injections.scm   $JS_Z_URL/injections.scm &
 # wget -q -O ../languages/javascript/outline.scm      $JS_Z_URL/outline.scm &
 wget -q -O ../languages/javascript/overrides.scm    $JS_Z_URL/overrides.scm &
 wget -q -O ../languages/javascript/runnables.scm    $JS_Z_URL/runnables.scm &

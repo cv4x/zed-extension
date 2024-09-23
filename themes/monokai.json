@@ -246,6 +246,7 @@
         "text.accent": "#e6db74",
         "text.muted": "#919288",
         "title_bar.background": "#161713",
+        "title_bar.inactive_background": "#161713",
         "toolbar.background": "#272822",
         "warning": "#fd971f",
         "warning.background": "#20211c",
