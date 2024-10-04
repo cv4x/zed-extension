@@ -23,6 +23,7 @@
         "editor.active_line_number": "#fdfff1",
         "editor.active_wrap_guide": "#272822",
         "editor.background": "#272822",
+        "editor.document_highlight.read_background": "#fdfff10c",
         "editor.foreground": "#fdfff1",
         "editor.gutter.background": "#272822",
         "editor.line_number": "#57584f",

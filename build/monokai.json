@@ -17,6 +17,7 @@
     {
       "name": "cv monokai Darker Classic",
       "style": {
+        "editor.document_highlight.read_background": "#fdfff10c",
         "title_bar.inactive_background": "#161713",
         "syntax": {
           "comment.doc": {
