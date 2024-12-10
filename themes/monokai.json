@@ -49,6 +49,9 @@
         "modified": "#fd971f",
         "pane_group.border": "#131310",
         "panel.background": "#20211c",
+        "panel.indent_guide": "#3b3c35",
+        "panel.indent_guide_active": "#3b3c35",
+        "panel.indent_guide_hovered": "#3b3c35",
         "players": [
           {
             "background": "#fdfff1",
@@ -94,7 +97,7 @@
         "scrollbar.track.border": "#272822",
         "search.match_background": "#3d3e38",
         "status_bar.background": "#20211c",
-        "surface.background": "#3b3c35",
+        "surface.background": "#20211c",
         "syntax": {
           "attribute": {
             "color": "#66d9ef",

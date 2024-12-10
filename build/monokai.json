@@ -19,6 +19,10 @@
       "style": {
         "editor.document_highlight.read_background": "#fdfff10c",
         "title_bar.inactive_background": "#161713",
+        "panel.indent_guide": "#3b3c35",
+        "panel.indent_guide_active": "#3b3c35",
+        "panel.indent_guide_hovered": "#3b3c35",
+        "surface.background": "#20211c",
         "syntax": {
           "comment.doc": {
             "color": "#6e7066",
